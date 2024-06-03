@@ -3,11 +3,7 @@
 
 import os
 from pathlib import Path # detect which os(windows/mac/linux) we are using and manages the path file accordingly
-import logging ## for log the activity
-
-logging.basicConfig(level=logging.INFO, format='[%(asctime)s]:%(message)s:')
-
-logging.info("hello this is my first logging file")
+from customlogger import logger
 
 list_of_files = [
     "src/__init__.py",
@@ -17,22 +13,23 @@ list_of_files = [
     "requirement.txt",
     "setup.py",
     "research/trials.ipynb",
-    "app.py"
+    "app.py",
+    "customlogger.py"
 ]
 
 for filepath in list_of_files:
     filepath = Path(filepath)
     file_dir, filename = os.path.split(filepath)
-    print(file_dir, filename)
+    logger.debug(f"Currently executing for files : {file_dir}, {filename}")
 
     if file_dir!=  "":
         os.makedirs(file_dir, exist_ok=True)
-        logging.info(f"Createing Directory {file_dir} for the files {filename}")
+        logger.info(f"Createing Directory {file_dir} for the files {filename}")
 
     if (not os.path.exists(filepath) or os.path.getsize(filepath) == 0):
         with open(filepath, "w") as f:
             pass
-            logging.info(f"New File Created: {filepath}")
+            logger.info(f"New File Created: {filepath}")
     else:
-        logging.info(f"{filename} is already exists")
+        logger.warning(f"{filename} is already exists")
         
