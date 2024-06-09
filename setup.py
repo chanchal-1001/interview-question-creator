@@ -9,6 +9,6 @@ setup(
     version= "0.0.0",
     author="Chanchal",
     author_email="entbuppy73@gmail.com",
-    packages=find_packages(),
+    packages=find_packages(),#looks for __init__ to setup in local sy
     install_requries = []
 )
