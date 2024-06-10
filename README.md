@@ -37,3 +37,6 @@ conda activate interview
 4. git push origin main
 
 ```
+
+![image](https://github.com/chanchal-1001/interview-question-creator/assets/158021620/b728e620-b14b-4421-bf52-53af87d18f79)
+
